@@ -128,7 +128,7 @@ textarea.mensaje {
     align-items: center;
     margin-top: 20px;
     width: 100%;
-    background-color: white;
+    background-color: #F3F5FC;
 }
 
 .boton_tres {
@@ -195,6 +195,7 @@ textarea.mensaje {
     display: none;
     text-align: center;
     color: #0A3871;
+    background-color: white;
 }
 
 .mensaje-placeholder.bold {
@@ -230,11 +231,13 @@ textarea.mensaje {
     border: none;
     color: white;
     align-items: center;
+    text-align: center;
 }
 
 .texto_creditos {
     background-color: #0A3871;
     align-items: center;
+    margin: 0;
 }
 
 @media (max-width: 768px) {
@@ -270,7 +273,12 @@ textarea.mensaje {
 
     .mensaje {
         background-image: none !important;
-        height: 20% !important  ;
+        height: auto !important;
+        max-height: 100%;
+        overflow: hidden;
+        resize: none;
+        word-wrap: break-word;
+        white-space: pre-wrap;
     }
     
 
