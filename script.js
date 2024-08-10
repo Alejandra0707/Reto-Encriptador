@@ -68,7 +68,7 @@ function actualizarVisibilidad() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    mensaje.classList.remove("ocultar-muneco"); // Mostrar la imagen al cargar la página
+    mensaje.classList.remove("ocultar-muneco"); 
 });
 
 function actualizarVisibilidad() {
@@ -76,11 +76,11 @@ function actualizarVisibilidad() {
 
     if (mensajeTieneTexto) {
         botonCopiar.style.display = "block";
-        mensaje.classList.add("ocultar-muneco"); // Ocultar la imagen solo cuando haya texto
+        mensaje.classList.add("ocultar-muneco");
         placeholders.forEach(placeholder => placeholder.style.display = "none");
     } else {
         botonCopiar.style.display = "none";
-        mensaje.classList.remove("ocultar-muneco"); // Mostrar la imagen si el mensaje está vacío
+        mensaje.classList.remove("ocultar-muneco"); 
         placeholders.forEach(placeholder => placeholder.style.display = "block");
     }
 }
