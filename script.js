@@ -12,10 +12,20 @@ botonCopiar.addEventListener("click", copiarTexto);
 textArea.addEventListener("input", actualizarVisibilidad);
 mensaje.addEventListener("input", actualizarVisibilidad);
 
-function boton_encriptador (){
-    const textoEncriptado = encriptar(textArea.value);
-    mensaje.value = textoEncriptado;
-    actualizarVisibilidad();
+function validarTexto(texto) {
+    const regex = /^[a-z\s]+$/;
+    return regex.test(texto);
+}
+
+function boton_encriptador() {
+    const texto = textArea.value;
+    if (validarTexto(texto)) {
+        const textoEncriptado = encriptar(texto);
+        mensaje.value = textoEncriptado;
+        actualizarVisibilidad();
+    } else {
+        alert("Por favor, ingresa solo letras minúsculas y sin caracteres especiales.");
+    }
 }
 
 function encriptar(stringEncriptada){
@@ -31,10 +41,15 @@ function encriptar(stringEncriptada){
     return stringEncriptada;
 }
 
-function boton_desencriptador (){
-    const textoDesencriptado = desencriptar(textArea.value);
-    mensaje.value = textoDesencriptado;
-    actualizarVisibilidad();
+function boton_desencriptador() {
+    const texto = textArea.value;
+    if (validarTexto(texto)) {
+        const textoDesencriptado = desencriptar(texto);
+        mensaje.value = textoDesencriptado;
+        actualizarVisibilidad();
+    } else {
+        alert("Por favor, ingrese solo letras minúsculas y sin caracteres especiales.");
+    }
 }
 
 function desencriptar(stringDesencriptada){
