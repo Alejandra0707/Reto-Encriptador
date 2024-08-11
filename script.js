@@ -24,7 +24,8 @@ mensaje.addEventListener("input", actualizarVisibilidad);
 
 function validarTexto(texto) {
     const textoLimpio = texto.trim(); // Elimina espacios al inicio y al final
-    const regex = /^[a-z\s]+$/;
+    // Nueva expresión regular que debería funcionar mejor en móviles
+    const regex = /^[a-z]+(?:\s+[a-z]+)*$/;
     return regex.test(textoLimpio);
 }
 
