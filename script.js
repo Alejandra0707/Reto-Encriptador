@@ -12,20 +12,10 @@ botonCopiar.addEventListener("click", copiarTexto);
 textArea.addEventListener("input", actualizarVisibilidad);
 mensaje.addEventListener("input", actualizarVisibilidad);
 
-function validarTexto(texto) {
-    const regex = /^[a-z\s]*$/; // Solo permite letras minúsculas sin acentos y espacios
-    return regex.test(texto);
-}
-
 function boton_encriptador (){
-    const texto = textArea.value;
-    if (validarTexto(texto)) {
-        const textoEncriptado = encriptar(texto);
-        mensaje.value = textoEncriptado;
-        actualizarVisibilidad();
-    } else {
-        alert("Solo se permiten letras minúsculas sin acentos ni caracteres especiales.");
-    }
+    const textoEncriptado = encriptar(textArea.value);
+    mensaje.value = textoEncriptado;
+    actualizarVisibilidad();
 }
 
 function encriptar(stringEncriptada){
@@ -42,14 +32,9 @@ function encriptar(stringEncriptada){
 }
 
 function boton_desencriptador (){
-    const texto = textArea.value;
-    if (validarTexto(texto)) {
-        const textoDesencriptado = desencriptar(texto);
-        mensaje.value = textoDesencriptado;
-        actualizarVisibilidad();
-    } else {
-        alert("Solo se permiten letras minúsculas sin acentos ni caracteres especiales.");
-    }
+    const textoDesencriptado = desencriptar(textArea.value);
+    mensaje.value = textoDesencriptado;
+    actualizarVisibilidad();
 }
 
 function desencriptar(stringDesencriptada){
@@ -65,9 +50,22 @@ function desencriptar(stringDesencriptada){
     return stringDesencriptada;
 }
 
+
 function copiarTexto() {
     mensaje.select();
     document.execCommand("copy");
+}
+
+function actualizarVisibilidad() {
+    const mensajeTieneTexto = mensaje.value.trim().length > 0;
+    
+    if (mensajeTieneTexto) {
+        botonCopiar.style.display = "block";
+        placeholders.forEach(placeholder => placeholder.style.display = "none");
+    } else {
+        botonCopiar.style.display = "none";
+        placeholders.forEach(placeholder => placeholder.style.display = "block");
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
