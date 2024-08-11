@@ -30,7 +30,7 @@ function boton_encriptador() {
         mensaje.value = textoEncriptado;
         actualizarVisibilidad();
     } else {
-        alert("El texto contiene caracteres no permitidos. Solo se permiten letras minúsculas sin acentos y sin números.");
+        alert("El texto contiene caracteres no permitidos");
     }
 }
 
@@ -54,7 +54,7 @@ function boton_desencriptador() {
         mensaje.value = textoDesencriptado;
         actualizarVisibilidad();
     } else {
-        alert("El texto contiene caracteres no permitidos. Solo se permiten letras minúsculas sin acentos y sin números.");
+        alert("El texto contiene caracteres no permitidos");
     }
 }
 
