@@ -12,10 +12,26 @@ botonCopiar.addEventListener("click", copiarTexto);
 textArea.addEventListener("input", actualizarVisibilidad);
 mensaje.addEventListener("input", actualizarVisibilidad);
 
-function boton_encriptador (){
-    const textoEncriptado = encriptar(textArea.value);
-    mensaje.value = textoEncriptado;
-    actualizarVisibilidad();
+function validarTexto(texto) {
+    const letrasPermitidas = "abcdefghijklmnopqrstuvwxyz "; 
+
+    for (let i = 0; i < texto.length; i++) {
+        if (!letrasPermitidas.includes(texto[i])) {
+            return false; 
+        }
+    }
+    return true;
+}
+
+function boton_encriptador() {
+    const texto = textArea.value;
+    if (validarTexto(texto)) {
+        const textoEncriptado = encriptar(texto);
+        mensaje.value = textoEncriptado;
+        actualizarVisibilidad();
+    } else {
+        alert("El texto contiene caracteres no permitidos. Solo se permiten letras minúsculas sin acentos y sin números.");
+    }
 }
 
 function encriptar(stringEncriptada){
@@ -31,10 +47,15 @@ function encriptar(stringEncriptada){
     return stringEncriptada;
 }
 
-function boton_desencriptador (){
-    const textoDesencriptado = desencriptar(textArea.value);
-    mensaje.value = textoDesencriptado;
-    actualizarVisibilidad();
+function boton_desencriptador() {
+    const texto = textArea.value;
+    if (validarTexto(texto)) {
+        const textoDesencriptado = desencriptar(texto);
+        mensaje.value = textoDesencriptado;
+        actualizarVisibilidad();
+    } else {
+        alert("El texto contiene caracteres no permitidos. Solo se permiten letras minúsculas sin acentos y sin números.");
+    }
 }
 
 function desencriptar(stringDesencriptada){
